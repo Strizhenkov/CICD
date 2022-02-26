@@ -8,20 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash -1 {0}
+        shell: bash -l {0}
     steps:
     - uses: actions/checkout@v2
-
+    
     - name: Clone
       run:
         git clone https://github.com/google/googletest.git -b release-1.11.0
-    
+        
     - name: Configure
       run:
         cmake -S. -Bbuild
-
+        
     - name: Build
-      run:
+      run: 
         cmake --build build
     - name: Test
       run:
